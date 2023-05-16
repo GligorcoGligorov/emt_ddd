@@ -4,9 +4,11 @@ import com.example.booking.domain.valueobjects.Destination;
 import com.example.booking.domain.valueobjects.ModeOfTransport;
 import com.example.sharedkernel.domain.base.AbstractEntity;
 import com.example.sharedkernel.domain.financial.Money;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Itinerary extends AbstractEntity<ItineraryId> {
@@ -22,5 +24,8 @@ public class Itinerary extends AbstractEntity<ItineraryId> {
     })
 
     private Money price;
+
+    @ManyToMany
+    List<Booking> bookingList;
 
 }
