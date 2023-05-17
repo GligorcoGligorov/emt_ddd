@@ -4,11 +4,15 @@ import com.example.booking.domain.valueobjects.Destination;
 import com.example.booking.domain.valueobjects.ModeOfTransport;
 import com.example.sharedkernel.domain.base.AbstractEntity;
 import com.example.sharedkernel.domain.financial.Money;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Getter
 public class Booking extends AbstractEntity<BookingId> {
 
     private Date bookingDate;
@@ -28,6 +32,10 @@ public class Booking extends AbstractEntity<BookingId> {
 
     @OneToOne(cascade = CascadeType.ALL)
     private CarRental carRental;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "bookingList")
+    private List<Itinerary> itineraries;
 
 
     public Booking() {

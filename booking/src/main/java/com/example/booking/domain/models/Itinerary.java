@@ -6,11 +6,14 @@ import com.example.sharedkernel.domain.base.AbstractEntity;
 import com.example.sharedkernel.domain.financial.Money;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
 
+import javax.annotation.processing.Generated;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Getter
 public class Itinerary extends AbstractEntity<ItineraryId> {
 
     private Destination destination;
@@ -34,5 +37,9 @@ public class Itinerary extends AbstractEntity<ItineraryId> {
         this.modeOfTransport = modeOfTransport;
         this.price = price;
         this.bookingList = bookingList;
+    }
+
+    public Itinerary() {
+
     }
 }
