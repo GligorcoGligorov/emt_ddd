@@ -28,4 +28,11 @@ public class Itinerary extends AbstractEntity<ItineraryId> {
     @ManyToMany
     List<Booking> bookingList;
 
+    public Itinerary(Destination destination, Date dateOfTravel, ModeOfTransport modeOfTransport, Money price, List<Booking> bookingList) {
+        this.destination = destination;
+        this.dateOfTravel = dateOfTravel;
+        this.modeOfTransport = modeOfTransport;
+        this.price = price;
+        this.bookingList = bookingList;
+    }
 }

@@ -32,4 +32,12 @@ public class Booking extends AbstractEntity<BookingId> {
 
     public Booking() {
     }
+
+    public Booking(Date bookingDate, Money bookingPrice, Hotel hotel, Flight flight, CarRental carRental) {
+        this.bookingDate = bookingDate;
+        this.bookingPrice = bookingPrice;
+        this.hotel = hotel;
+        this.flight = flight;
+        this.carRental = carRental;
+    }
 }
